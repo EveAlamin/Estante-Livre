@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novo Anúncio - Estante Livre</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">
+    <img src="../img/logo.svg" alt="Logotipo Estante Livre" class="logo-icone">
+    <span>Estante Livre</span>
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="painel.html">Painel</a></li>
+      <li><a href="novo-anuncio.html">Novo Anúncio</a></li>
+      <li><a href="meus-anuncios.html">Meus Anúncios</a></li>
+      <li><a href="../index.html">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="form-container form-larga">
+    <h1>Anunciar um livro</h1>
+
+    <form action="#">
+      <div class="linha-formulario">
+        <div class="campo-formulario">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="titulo">
+        </div>
+        <div class="campo-formulario">
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" name="autor">
+        </div>
+      </div>
+
+      <div class="linha-formulario">
+        <div class="campo-formulario">
+          <label for="editora">Editora</label>
+          <input type="text" id="editora" name="editora">
+        </div>
+        <div class="campo-formulario">
+          <label for="ano">Ano de publicação</label>
+          <input type="number" id="ano" name="ano">
+        </div>
+      </div>
+
+      <div class="linha-formulario">
+        <div class="campo-formulario">
+          <label for="genero">Gênero</label>
+          <select id="genero" name="genero">
+            <option value="ficcao">Ficção</option>
+            <option value="fantasia">Fantasia</option>
+            <option value="nao-ficcao">Não-ficção</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="romance">Romance</option>
+          </select>
+        </div>
+        <div class="campo-formulario">
+          <label for="conservacao">Estado de conservação</label>
+          <select id="conservacao" name="conservacao">
+            <option value="novo">Novo</option>
+            <option value="seminovo">Seminovo</option>
+            <option value="usado">Usado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo-formulario">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="4"></textarea>
+      </div>
+
+      <div class="linha-formulario">
+        <div class="campo-formulario">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" name="valor">
+        </div>
+        <div class="campo-formulario">
+          <label for="estado">Estado (UF)</label>
+          <select id="estado" name="estado">
+            <option value="MG">MG</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+          </select>
+        </div>
+        <div class="campo-formulario">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade">
+        </div>
+      </div>
+
+      <div class="campo-formulario">
+        <label for="fotos">Fotos do livro (mínimo 3)</label>
+        <input type="file" id="fotos" name="fotos[]" accept="image/*" multiple>
+      </div>
+
+      <button type="submit" class="btn">Cadastrar Anúncio</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Estante Livre - Portal de compra e venda de livros</p>
+</footer>
+
+</body>
+</html>

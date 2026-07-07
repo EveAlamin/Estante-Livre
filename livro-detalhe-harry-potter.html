@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry Potter e a Pedra Filosofal - Estante Livre</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">
+    <img src="img/logo.svg" alt="Logotipo Estante Livre" class="logo-icone">
+    <span>Estante Livre</span>
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cadastro.html">Cadastrar</a></li>
+      <li><a href="login.html">Entrar</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="detalhe-anuncio">
+    <div class="detalhe-fotos">
+      <img class="foto-principal" src="img/harry-potter.jpg" alt="Foto do livro Harry Potter e a Pedra Filosofal">
+    </div>
+
+    <div class="detalhe-info">
+      <h1>Harry Potter e a Pedra Filosofal</h1>
+      <p class="card-autor">J.K. Rowling</p>
+      <p class="detalhe-valor">R$ 50,00</p>
+
+      <table>
+        <tr><td>Editora</td><td>Rocco</td></tr>
+        <tr><td>Ano de publicação</td><td>1997</td></tr>
+        <tr><td>Gênero</td><td>Fantasia</td></tr>
+        <tr><td>Estado de conservação</td><td>Usado</td></tr>
+        <tr><td>Estado</td><td>MG</td></tr>
+        <tr><td>Cidade</td><td>Uberlândia</td></tr>
+      </table>
+
+      <h3>Descrição</h3>
+      <p>Primeiro livro da saga do bruxinho. Já lido algumas vezes, mas em bom estado de conservação.</p>
+    </div>
+  </section>
+
+  <section class="form-container">
+    <h2>Registrar interesse neste livro</h2>
+
+    <form action="#">
+      <div class="campo-formulario">
+        <label for="nome-interesse">Nome</label>
+        <input type="text" id="nome-interesse" name="nome">
+      </div>
+
+      <div class="campo-formulario">
+        <label for="telefone-interesse">Telefone</label>
+        <input type="tel" id="telefone-interesse" name="telefone">
+      </div>
+
+      <div class="campo-formulario">
+        <label for="mensagem-interesse">Mensagem</label>
+        <textarea id="mensagem-interesse" name="mensagem" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Enviar interesse</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Estante Livre - Portal de compra e venda de livros</p>
+</footer>
+
+</body>
+</html>

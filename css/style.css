@@ -1,0 +1,561 @@
+/* =========================================================
+   Estante Livre - Portal de livros usados e novos
+   Etapa 1: apenas HTML e CSS (sem JavaScript, sem Bootstrap
+   nas páginas públicas). Layout feito com Flexbox.
+   ========================================================= */
+
+/* ---------- Fonte moderna ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Reset e base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: #f0efe8;
+  color: #3a3a3a;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: #2c4637;
+}
+
+a {
+  color: #2c4637;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: #d9a441;
+}
+
+/* ---------- Cabeçalho ---------- */
+.site-header {
+  background-color: #2c4637;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo-icone {
+  width: 36px;
+  height: 36px;
+}
+
+/* ---------- Navegação ---------- */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #d9a441;
+}
+
+/* ---------- Conteúdo principal ---------- */
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  flex: 1;
+  width: 100%;
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer {
+  background-color: #2c4637;
+  color: #c8c8c0;
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+/* ---------- Painel de busca ---------- */
+.painel-busca {
+  background-color: #ffffff;
+  border: 1px solid #e0dfda;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 36px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.painel-busca h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.campos-busca {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.campo-busca {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 180px;
+}
+
+.campo-busca label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ---------- Inputs e selects globais ---------- */
+select, input, textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px solid #d0cfca;
+  border-radius: 8px;
+  background-color: #fafaf8;
+  color: #3a3a3a;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+}
+
+select:focus, input:focus, textarea:focus {
+  border-color: #2c4637;
+  box-shadow: 0 0 0 3px rgba(44, 70, 55, 0.12);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block;
+  background-color: #d9a441;
+  color: #2c4637;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  background-color: #c7922f;
+  color: #2c4637;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 164, 65, 0.35);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-excluir {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+.btn-excluir:hover {
+  background-color: #a93226;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.35);
+}
+
+/* ---------- Cards de anúncios ---------- */
+.lista-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0dfda;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 230px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-conteudo {
+  padding: 14px;
+}
+
+.card-conteudo h3 {
+  margin: 0 0 6px 0;
+  font-size: 17px;
+}
+
+.card-conteudo p {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.card-autor {
+  font-style: italic;
+  margin: 0 0 5px 0;
+}
+
+.card-valor {
+  font-weight: 700;
+  font-size: 20px;
+  color: #2c4637;
+  margin: 10px 0;
+}
+
+.card-conteudo .btn {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.card-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.card-acoes .btn {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* ---------- Formulários ---------- */
+.form-container {
+  background-color: #ffffff;
+  border: 1px solid #e0dfda;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 550px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.form-container.form-larga {
+  max-width: 700px;
+}
+
+.form-container h1,
+.form-container h2 {
+  margin-top: 0;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.campo-formulario label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.linha-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.linha-formulario .campo-formulario {
+  flex: 1 1 180px;
+}
+
+.form-container > p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.form-container > p a {
+  font-weight: 600;
+}
+
+/* ---------- Página de detalhes do anúncio ---------- */
+.detalhe-anuncio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  background-color: #ffffff;
+  border: 1px solid #e0dfda;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.detalhe-fotos {
+  flex: 1 1 300px;
+}
+
+.detalhe-fotos img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.foto-principal {
+  height: 260px;
+  margin-bottom: 10px;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 8px;
+}
+
+.miniaturas img {
+  height: 70px;
+  flex: 1;
+  border-radius: 6px;
+}
+
+.detalhe-info {
+  flex: 1 1 300px;
+}
+
+.detalhe-info h1 {
+  margin-top: 0;
+}
+
+.detalhe-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.detalhe-info td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #eae9e4;
+  font-size: 14px;
+}
+
+.detalhe-info td:first-child {
+  font-weight: 600;
+  width: 40%;
+  color: #666;
+}
+
+.detalhe-valor {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c4637;
+  margin: 10px 0;
+}
+
+/* ---------- Painel interno (área restrita) ---------- */
+.painel-boas-vindas {
+  background-color: #ffffff;
+  border: 1px solid #e0dfda;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.painel-boas-vindas h1 {
+  margin-top: 0;
+}
+
+.painel-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.painel-acoes a {
+  background-color: #2c4637;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 22px;
+  flex: 1 1 200px;
+  text-align: center;
+  border-radius: 12px;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.painel-acoes a:hover {
+  background-color: #3b5e4a;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(44, 70, 55, 0.25);
+}
+
+/* ---------- Tabela de mensagens de interesse ---------- */
+.tabela-interesses {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tabela-interesses th,
+.tabela-interesses td {
+  border: 1px solid #e0dfda;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.tabela-interesses th {
+  background-color: #2c4637;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tabela-interesses tr:hover {
+  background-color: #f5f5f0;
+}
+
+.envolve-tabela {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+/* ---------- Seção de últimos anúncios ---------- */
+main > section > h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .main-nav ul {
+    gap: 4px;
+  }
+
+  .main-nav a {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 24px 16px 32px;
+  }
+
+  .campos-busca,
+  .linha-formulario {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card img {
+    height: 220px;
+  }
+
+  .detalhe-anuncio {
+    padding: 20px;
+  }
+
+  .foto-principal {
+    height: 200px;
+  }
+
+  .form-container {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 19px;
+  }
+
+  .logo-icone {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main-nav a {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .painel-busca {
+    padding: 18px;
+  }
+
+  .card-acoes {
+    flex-direction: column;
+  }
+
+  .card-acoes .btn {
+    width: 100%;
+  }
+
+  .painel-acoes a {
+    padding: 16px;
+    font-size: 15px;
+  }
+}
