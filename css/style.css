@@ -156,6 +156,8 @@ select, input, textarea {
   color: #3a3a3a;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
   outline: none;
+  width: 100%;
+  max-width: 100%;
 }
 
 select:focus, input:focus, textarea:focus {
@@ -328,6 +330,11 @@ select:focus, input:focus, textarea:focus {
   font-weight: 600;
 }
 
+.form-container .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
 /* ---------- Página de detalhes do anúncio ---------- */
 .detalhe-anuncio {
   display: flex;
@@ -481,29 +488,54 @@ main > section > h2 {
 
 /* ---------- Responsividade ---------- */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .site-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 20px;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .main-nav {
+    width: 100%;
   }
 
   .main-nav ul {
+    justify-content: center;
     gap: 4px;
+    flex-wrap: wrap;
   }
 
   .main-nav a {
-    padding: 6px 12px;
+    padding: 7px 14px;
     font-size: 14px;
   }
 
   main {
-    padding: 24px 16px 32px;
+    padding: 20px 14px 32px;
   }
 
+  /* Busca empilhada */
   .campos-busca,
   .linha-formulario {
     flex-direction: column;
+  }
+
+  .campo-busca {
+    flex: 1 1 100%;
+  }
+
+  /* Cards em coluna única */
+  .lista-cards {
+    flex-direction: column;
+    gap: 16px;
   }
 
   .card {
@@ -514,27 +546,86 @@ main > section > h2 {
     height: 220px;
   }
 
+  /* Detalhe do livro empilhado */
   .detalhe-anuncio {
-    padding: 20px;
+    flex-direction: column;
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .detalhe-fotos {
+    flex: 1 1 auto;
+  }
+
+  .detalhe-info {
+    flex: 1 1 auto;
   }
 
   .foto-principal {
-    height: 200px;
+    height: auto;
+    max-height: 300px;
   }
 
+  /* Formulários */
   .form-container {
-    padding: 22px;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .form-container.form-larga {
+    max-width: 100%;
+  }
+
+  .linha-formulario .campo-formulario {
+    flex: 1 1 100%;
+  }
+
+  /* Painel restrito */
+  .painel-boas-vindas {
+    padding: 20px;
+  }
+
+  .painel-acoes {
+    flex-direction: column;
+  }
+
+  .painel-acoes a {
+    flex: 1 1 auto;
+  }
+
+  /* Tabela de interesses */
+  .envolve-tabela {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabela-interesses {
+    min-width: 500px;
+  }
+
+  /* Card ações empilhadas */
+  .card-acoes {
+    flex-direction: column;
+  }
+
+  .card-acoes .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
+  .site-header {
+    padding: 12px 12px;
+  }
+
   .logo {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .logo-icone {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .main-nav a {
@@ -542,20 +633,40 @@ main > section > h2 {
     font-size: 13px;
   }
 
+  main {
+    padding: 16px 10px 28px;
+  }
+
   .painel-busca {
-    padding: 18px;
+    padding: 16px;
   }
 
-  .card-acoes {
-    flex-direction: column;
+  .detalhe-anuncio {
+    padding: 14px;
   }
 
-  .card-acoes .btn {
-    width: 100%;
+  .form-container {
+    padding: 16px;
   }
 
   .painel-acoes a {
     padding: 16px;
     font-size: 15px;
+  }
+
+  .detalhe-valor {
+    font-size: 20px;
+  }
+
+  .card-valor {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
   }
 }
