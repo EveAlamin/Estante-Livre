@@ -522,14 +522,20 @@ main > section > h2 {
     padding: 20px 14px 32px;
   }
 
-  /* Busca empilhada */
-  .campos-busca,
-  .linha-formulario {
-    flex-direction: column;
+  /* Busca lado a lado */
+  .campos-busca {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .campo-busca {
-    flex: 1 1 100%;
+    flex: 1 1 100px;
+    min-width: 0;
+  }
+
+  /* Formulários empilhados */
+  .linha-formulario {
+    flex-direction: column;
   }
 
   /* Cards em coluna única */
